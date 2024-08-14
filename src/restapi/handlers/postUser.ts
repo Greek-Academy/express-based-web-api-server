@@ -6,6 +6,8 @@ import env from "@constants/env";
 import { User } from "@domain/user";
 import { findUsers } from "@repository/findUsers";
 
+export const userIndex: { [userNameIndex: string]: string } = {};
+
 export const postUser: RequestHandler = async (req, res, next) => {
   try {
     // Extract event details from request body
@@ -40,6 +42,8 @@ export const postUser: RequestHandler = async (req, res, next) => {
       if (err) {
         throw err;
       }
+
+      userIndex[userName] = filePath
       console.log(`Event data appended to ${filePath}`);
     });
 
