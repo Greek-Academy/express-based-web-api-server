@@ -1,6 +1,4 @@
 import fs from "fs/promises";
-import env from "@constants/env";
-import path from "path";
 import { User } from "@domain/user";
 import { userIndex } from "@restapi/handlers/postUser";
 
