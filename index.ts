@@ -1,9 +1,13 @@
 import env from "@constants/env";
+import { initializeUserIndex } from "@repository/userIndex";
 import { router } from "@restapi";
+import { userIndex } from "@restapi/handlers/postUser";
 import bodyParser from "body-parser";
 import express from "express";
 
-const main = () => {
+const main = async () => {
+  await initializeUserIndex();
+
   expressjs();
 };
 
