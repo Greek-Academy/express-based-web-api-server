@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { findUsers } from "@repository/findUsers";
+import { findUser } from "@repository/findUser";
 
 export const getUser: RequestHandler = async (req, res, next) => {
   try {
@@ -10,9 +10,7 @@ export const getUser: RequestHandler = async (req, res, next) => {
       return;
     }
 
-    const users = await findUsers();
-
-    const user = users.find((user) => user.name === userName);
+    const user = await findUser(userName);
 
     if (!user) {
       res.status(404).send("User not found.");
